@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Visualización de Sensor de Temperatura</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../static/css/index.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /> 
+    </head>
+    <style>
+    .material-symbols-outlined {
+    font-size: 75px;
+    color: rgba(9, 46, 157, 0.571);
+    }
+    </style>
+    <body>
+        <div class="color">
+            <div class="container text-center margenn">
+                <h1 class="titulo">Invernadero Inteligente</h1>
+                <p class="parrafo">Aqui podra consultar los datos del estado del invernadero,</p>
+                <p class="parrafo">para ser monitoreados y consultar el estado del mismo generando un reporte.</p>
+                <img src="../static/images/TranshumansPlants.png" class="img-fondo" alt="">
+                    <ul class="circles">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+            </div>
+        </div>
+
+            
+
+    <article class="color2">
+        <div class="container mt-5">
+            <div class="card text-center" style="max-width: 1200px; border: none;">
+                <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="../static/images/HandsEarth.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title titulo-datos">Datos Sobre la temperatura y humedad del suelo</h5>
+                    <p class="card-text">Se mostrara en timepo real el estado de la temperatura y huemdad en el que se encuentran el invernadero</p>
+                    
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card text-center">
+                        <div class="card-header titulo-carta">Sensor de Temperatura</div>
+                        <div class="card-body cuerpo-carta">
+                            <h5 class="card-title">Temperatura</h5>
+                            <span class="material-symbols-outlined">thermostat</span>
+                            <p class="card-text" id="tempValue">{{humedad[1]}} -- °C</p>
+                            
+                        </div>
+                        
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card text-center">
+                        <div class="card-header titulo-carta">Sensor de humedad del suelo</div>
+                        <div class="card-body cuerpo-carta">
+                            <h5 class="card-title">Humedad</h5>
+                            <span class="material-symbols-outlined">heat</span>
+                            <p class="card-text" id="tempValue">{{humedad[0]}}%</p>
+                            
+                        </div>
+                        
+                        </div>
+                    </div>
+                    </div>
+            </div>
+            
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="container mt-5">
+            <div class="card text-center" style="max-width: 1200px; border: none;">
+                <div class="row g-0">
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title titulo-datos">Datos y pronostico de lluvia</h5>
+                    <p class="card-text">Se mostrara en tiempo real el pronostico de lluvia, si desea actualizar presione el boton.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="../static/images/HandsCloud.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                </div>
+            <div class="row">
+            <div class="col-md-6">
+                <div class="card text-center">
+                <div class="card-header titulo-carta">Sensor de Lluvia</div>
+                <div class="card-body cuerpo-carta">
+                    <h5 class="card-title">Temperatura</h5>
+                    <span class="material-symbols-outlined">cloudy_snowing</span>
+                    <p class="card-text" id="tempValue">{{nivel_lluvia}} °C</p>
+                </div>
+                
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card text-center">
+                <div class="card-header titulo-carta">Estado del tiempo</div>
+                <div class="card-body cuerpo-carta">
+                    <h5 class="card-title">Temperatura</h5>
+                    {% if info %}
+                        <p class="card-text" id="tempValue">{{info}} °C</p>
+                        <img src="{{img}}" alt="" class="temp">
+                    {% else %}
+                        <p class="card-text" id="tempValue">{{error}}</p>
+                    {% endif %}
+                </div>
+                
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="container text-center reporte">
+            <h2 class="titulo-datos">¿Desea obtener un reporte de como se encuentra las condiciones del suelo?</h2>
+            <a href="{{ url_for('page_ini_pdf') }}" download="documento.pdf" class="btn botoncolor">Descargar PDF</a>
+        </div>
+    </article>
+    </body>
+    <script>
+        // Función para refrescar la página cada 5 segundos (5000 milisegundos)
+        function refrescarPagina() {
+          location.reload();
+        }
+      
+        // Llamamos a la función cada 5000 milisegundos (5 segundos)
+        setTimeout(refrescarPagina, 5000);
+      </script>
+    
+</html>

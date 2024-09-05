@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Visualización de Sensor de Temperatura</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Estilos adicionales aquí */
+    /* Puedes agregar estilos personalizados si lo deseas */
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Datos del Sensor de Temperatura y humedad</h1>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card text-center">
+
+          <div class="card-header">
+            Lectura Actual
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">Temperatura</h5>
+            <p class="card-text" id="tempValue">{{humedad[1]}} -- °C</p>
+            <h5 class="card-title">Humedad</h5>
+            <p class="card-text" id="tempValue">{{humedad[0]}}%</p>
+            <button class="btn btn-primary">Actualizar</button>
+          </div>
+          <div class="card-footer text-muted">
+            Datos simulados de un sensor
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="text-center mb-4">Datos del Sensor de Humedad de la Tierra</h1>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card text-center">
+          
+          <div class="card-header">
+            Lectura Actual
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">Temperatura con el sensor</h5>
+            <p class="card-text" id="tempValue">{{ agua }}</p>
+            <button class="btn btn-primary">Actualizar</button>
+          </div>
+          <div class="card-footer text-muted">
+            Datos simulados de un sensor
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="text-center mb-4">Datos del Sensor de Agua</h1>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card text-center">
+          
+          <div class="card-header">
+            Lectura Actual de Ahora
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">Hay agua</h5>
+            <p class="card-text" id="tempValue">{{ nivel_lluvia }}</p>
+            <button class="btn btn-primary">Actualizar</button>
+          </div>
+          <div class="card-footer text-muted">
+            Datos simulados de un sensor
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  // Función para refrescar la página cada 5 segundos (5000 milisegundos)
+  function refrescarPagina() {
+    location.reload();
+  }
+
+  // Llamamos a la función cada 5000 milisegundos (5 segundos)
+  setTimeout(refrescarPagina, 5000);
+</script>
+
+</html>
